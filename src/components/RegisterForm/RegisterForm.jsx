@@ -1,15 +1,82 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function RegisterForm(){
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        password: "",
-    });
+const RegisterForm = ({ onSubmit, error, loading }) => {
+    const [form, setForm] = useState({ name: "", email: "", password: "" });
 
-    const handlerSubmit = (e) => {
+    const handleChange = (e) => {
+        setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
+        onSubmit(form);
+    };
 
-        
-    }
-}
+    return (
+        <div className="auth-card">
+            <h1 className="auth-logo">🍽️ RecipeApp</h1>
+            <p className="auth-subtitle">Create your account and start cooking</p>
+
+            <form className="auth-form" onSubmit={handleSubmit}>
+                {error && <div className="alert alert-danger">{error}</div>}
+
+                <div className="form-group">
+                    <label className="form-label">Name</label>
+                    <input
+                        className="form-input"
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        value={form.name}
+                        onChange={handleChange}
+                        required
+                        autoFocus
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label className="form-label">Email</label>
+                    <input
+                        className="form-input"
+                        type="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        value={form.email}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label className="form-label">Password</label>
+                    <input
+                        className="form-input"
+                        type="password"
+                        name="password"
+                        placeholder="Min 8 characters"
+                        value={form.password}
+                        onChange={handleChange}
+                        minLength={8}
+                        required
+                    />
+                </div>
+
+                <button
+                    type="submit"
+                    className="btn btn-primary btn-full"
+                    disabled={loading}
+                >
+                    {loading ? "Creating account…" : "Create account"}
+                </button>
+            </form>
+
+            <p className="auth-footer">
+                Already have an account?{" "}
+                <Link to="/login">Sign in</Link>
+            </p>
+        </div>
+    );
+};
+
+export default RegisterForm;

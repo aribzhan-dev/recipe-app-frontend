@@ -243,8 +243,8 @@ const RecipePage = () => {
                             </h3>
                             <p>
                                 {recipes.length === 0
-                                    ? "Click "New Recipe" to add your first one!"
-                  : "Try a different filter or search term."}
+                                    ? 'Click "New Recipe" to add your first one!'
+                                    : 'Try a different filter or search term.'}
                             </p>
                         </div>
                     ) : (
