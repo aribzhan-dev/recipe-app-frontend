@@ -15,7 +15,7 @@ const RegisterForm = ({ onSubmit, error, loading }) => {
 
     return (
         <div className="auth-card">
-            <h1 className="auth-logo">🍽️ RecipeApp</h1>
+            <h1 className="auth-logo"> RecipeApp</h1>
             <p className="auth-subtitle">Create your account and start cooking</p>
 
             <form className="auth-form" onSubmit={handleSubmit}>

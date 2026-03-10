@@ -15,7 +15,7 @@ const LoginForm = ({ onSubmit, error, loading }) => {
 
     return (
         <div className="auth-card">
-            <h1 className="auth-logo">🍽️ RecipeApp</h1>
+            <h1 className="auth-logo">RecipeApp</h1>
             <p className="auth-subtitle">Welcome back! Sign in to your account</p>
 
             <form className="auth-form" onSubmit={handleSubmit}>

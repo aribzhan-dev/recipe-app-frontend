@@ -4,7 +4,6 @@ import RecipeForm from "../components/RecipeForm/RecipeForm";
 import CategoryForm from "../components/CategoryForm/CategoryForm";
 import "./RecipiPage.css";
 
-// ─── Recipe Card ──────────────────────────────────────────────────────────────
 const RecipeCard = ({ recipe, onEdit, onDelete }) => {
     const [expanded, setExpanded] = useState(false);
 
@@ -58,7 +57,6 @@ const RecipeCard = ({ recipe, onEdit, onDelete }) => {
     );
 };
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
 const RecipePage = () => {
     const [recipes, setRecipes] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -90,7 +88,6 @@ const RecipePage = () => {
         load();
     }, []);
 
-    // ─── Filtered recipes ─────────────────────────────────────────────────────
     const filteredRecipes = useMemo(() => {
         return recipes.filter((recipe) => {
             const matchCategory =
@@ -105,7 +102,7 @@ const RecipePage = () => {
         });
     }, [recipes, activeCategory, search]);
 
-    // ─── CRUD Handlers ─────────────────────────────────────────────────────────
+
     const openCreate = () => {
         setEditingRecipe(null);
         setModalOpen(true);
@@ -140,7 +137,6 @@ const RecipePage = () => {
         setRecipes((prev) => prev.filter((r) => r._id !== id));
     };
 
-    // ─── Category CRUD ─────────────────────────────────────────────────────────
     const handleCreateCategory = async (title) => {
         const created = await api.post("/category", { title });
         setCategories((prev) => [...prev, created]);
@@ -159,7 +155,6 @@ const RecipePage = () => {
         if (activeCategory === id) setActiveCategory("all");
     };
 
-    // ─── Render ───────────────────────────────────────────────────────────────
     if (loading) {
         return (
             <main className="page">
@@ -184,7 +179,6 @@ const RecipePage = () => {
             )}
 
             <div className="recipes-layout">
-                {/* ─── Sidebar ─── */}
                 <aside className="recipes-sidebar">
                     <CategoryForm
                         categories={categories}
@@ -194,9 +188,7 @@ const RecipePage = () => {
                     />
                 </aside>
 
-                {/* ─── Main Content ─── */}
                 <section className="recipes-main">
-                    {/* Filters */}
                     <div className="recipes-filters">
                         <div className="filter-chips">
                             <button
@@ -225,14 +217,12 @@ const RecipePage = () => {
                         />
                     </div>
 
-                    {/* Results info */}
                     <p className="recipes-count">
                         {filteredRecipes.length === 0
                             ? "No recipes found"
                             : `${filteredRecipes.length} recipe${filteredRecipes.length !== 1 ? "s" : ""}`}
                     </p>
 
-                    {/* List */}
                     {filteredRecipes.length === 0 ? (
                         <div className="empty-state">
                             <div className="empty-state-icon">🍽️</div>
