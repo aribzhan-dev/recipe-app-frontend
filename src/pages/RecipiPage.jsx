@@ -69,7 +69,6 @@ const RecipePage = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [editingRecipe, setEditingRecipe] = useState(null);
 
-    // ─── Load data ───────────────────────────────────────────────────────────
     useEffect(() => {
         const load = async () => {
             try {
@@ -252,7 +251,6 @@ const RecipePage = () => {
                 </section>
             </div>
 
-            {/* Modal */}
             {modalOpen && (
                 <RecipeForm
                     recipe={editingRecipe}

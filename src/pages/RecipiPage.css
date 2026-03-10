@@ -4,7 +4,6 @@
     padding: var(--space-16);
 }
 
-/* ─── Layout ─── */
 .recipes-layout {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -21,7 +20,7 @@
     min-width: 0;
 }
 
-/* ─── Filters ─── */
+
 .recipes-filters {
     display: flex;
     align-items: center;
@@ -68,21 +67,18 @@
     flex-shrink: 0;
 }
 
-/* ─── Count ─── */
 .recipes-count {
     font-size: 13px;
     color: var(--color-text-secondary);
     margin-bottom: var(--space-4);
 }
 
-/* ─── List ─── */
 .recipes-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
 }
 
-/* ─── Recipe Card ─── */
 .recipe-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -185,7 +181,6 @@
     word-break: break-word;
 }
 
-/* ─── Responsive ─── */
 @media (max-width: 768px) {
     .recipes-layout {
         grid-template-columns: 1fr;

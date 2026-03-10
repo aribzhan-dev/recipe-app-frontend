@@ -28,7 +28,7 @@ const HomePage = () => {
                 setRecipes(r);
                 setCategories(c);
             } catch {
-                // silent — user will see empty state
+                
             } finally {
                 setLoading(false);
             }
