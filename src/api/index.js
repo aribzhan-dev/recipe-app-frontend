@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://recipe-app-backend-g4d0.onrender.com/api";
 
 const getToken = () => localStorage.getItem("token");
 
